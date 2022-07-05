@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
     <link rel="stylesheet" type="text/css" href="ui.css">
+    <meta name="title" property="og:title" content="이지스퍼블리싱">
+    <meta name="images" property="og:image" content="./images/link_thumb.jpg">
+    <meta name="description" property="og:description" content="이지스퍼블리싱">
+    <meta name="type" property="og:type" content="article">
     <title>이지스퍼블리싱</title>
 </head>
 <body>
@@ -14,29 +18,37 @@
             <strong class="logo_box"><img src="./images/mainLogo.png" alt="이지스퍼블리싱"></strong>
             <nav>
                 <ul>
-                    <li><a href="#">회사소개</a></li>
-                    <li><a href="#">도서소개</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li data-rol="menu1"><a href="#">회사소개</a></li>
+                    <li data-rol="menu2"><a href="#">도서소개</a></li>
+                    <li data-rol="menu3"><a href="#">FAQ</a></li>
+                    <li data-rol="menu4"><a href="#">Contact Us</a></li>
                 </ul>
             </nav>
         </header>
         <section id="container">
             <section id="menu1" class="content">
                 <h2>회사소개</h2>
-                <div class="conbox"></div>
+                <div class="conbox">
+                    <section class="content_wrap"></section>
+                </div>
             </section>
             <section id="menu2" class="content">
                 <h2>도서소개</h2>
-                <div class="conbox"></div>
+                <div class="conbox">
+                    <section class="content_wrap"></section>
+                </div>
             </section>
             <section id="menu3" class="content">
                 <h2>FAQ</h2>
-                <div class="conbox"></div>
+                <div class="conbox">
+                    <section class="content_wrap"></section>
+                </div>
             </section>
             <section id="menu4" class="content">
                 <h2>Contact Us</h2>
-                <div class="conbox"></div>
+                <div class="conbox">
+                    <section class="content_wrap"></section>
+                </div>
             </section>
         </section>
         <footer>
@@ -47,5 +59,7 @@
             <a href="https://www.instagram.com/easypub_book/" class="instar" title="인스타그램으로 이동"></a>
         </footer>
     </section>    
+    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./ui.js"></script>
 </body>
 </html>
