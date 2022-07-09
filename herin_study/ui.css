@@ -327,11 +327,19 @@ footer > a.instar:hover { background: url(./images/social_b_instar_hover.png) no
   position:absolute;
   transition:all .5s;
 }
-#container .content.this{width:100%; left:0 !important;} /*우선순위*/
+#container .content.this .conbox{max-width: 1100px; margin:0 auto;}
+#container .content.this{width:100%; left:0 !important; height:100%; overflow: hidden; overflow-y: auto;} /*우선순위*/
 #container .content.prev{width:100%; left:-100% !important;}
 #container .content.next{width:100%; left:100% !important;}
+/* 페이지 왼오 이동시 이미지와 텍스트 안보이게 this, prev, next 전부 선택 */
 #container .content.this::before, #container .content.this:after,
-#container .content.this .conbox::before{opacity: 0;}
+#container .content.this .conbox::before,
+#container .content.prev::before, #container .content.prev:after,
+#container .content.prev .conbox::before,
+#container .content.next::before, #container .content.next:after,
+#container .content.next .conbox::before{opacity: 0; transition:all .6s; transition-delay: .3s;}
+#container .content.this .conbox::before{transform:translate3d(300px,0,0);} /*캐릭터 이미지*/
+#container .content.this::after{transform: translate3d(-300px,0,0);} /*텍스트*/
 #container #menu1 {left:0%; background:url(./images/content_bg1.png) repeat;}
 #container #menu2 {left:25%; background:url(./images/content_bg2.png) repeat;}
 #container #menu3 {left:50%; background:url(./images/content_bg3.png) repeat;}
@@ -407,6 +415,8 @@ footer > a.instar:hover { background: url(./images/social_b_instar_hover.png) no
   font-size:28px;
   font-weight: 400;
   opacity: 1;
+  transition: all .6s;
+  transition-delay: 1.2s;
 }
 #container .content.this h2::after{
   content:"";
@@ -418,10 +428,188 @@ footer > a.instar:hover { background: url(./images/social_b_instar_hover.png) no
   bottom: 0;
 }
 #container .content .conbox .content_wrap{opacity: 0;}
-#container .content.this .conbox .content_wrap{padding: 30px 50px 50px 50px; opacity: 1;}
-#container .content{top:-100%; transition: all .8s;}
+#container .content.this .conbox .content_wrap{
+  padding: 30px 50px 50px 50px; 
+  opacity: 1; 
+  transition: 1.7s;
+  transition-delay: .8s; 
+  /* #container .content 의 transition-delay시간보다 늦어야함 */
+}
+#container .content{top:-100%; transition:all .8s;}
 /* 시작 시간 지연 */
 #container .content:nth-of-type(2){transition-delay:.3s;}
 #container .content:nth-of-type(3){transition-delay:.6s;}
 #container .content:nth-of-type(4){transition-delay:.8s;}
-#container .start .content{top:0;}
+#container.start .content{top:0;}
+.pargrph_tit{
+  margin-bottom: 50px;
+  font-size: 24px;
+  color:#fff;
+  position:relative;
+}
+.pargrph_tit:after{
+  content:"";
+  display: block;
+  width: 30px;
+  height: 8px;
+  background: #ed3140;
+  position: absolute;
+  left:0;
+  bottom:-10px;
+}
+.text_box{position:relative;}
+.text_box h4{
+  font-size: 40px;
+  color: #d6d4d4;
+  font-weight: 700;
+}
+.text_box p{
+  margin-bottom: 50px;
+  color:#ababab;
+  line-height: 20px;
+}
+.text_box:nth-child(odd){text-align: left;}
+.text_box:nth-child(even){text-align: right;}
+.text_box:nth-child(1)::after{
+  content: ""; 
+  display: block;
+  width:206px;
+  height:100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: url(./images/content_img1.png) no-repeat right top;
+  background-size: 206px auto;
+}
+.text_box:nth-child(1) p{
+  width:100%;
+  padding-right:206px;
+}
+.text_box:nth-last-child(1)::before{
+  content: "";
+  display: block;
+  width: 150px;
+  height:250px;
+  position: absolute;
+  left: 0;
+  top: 70px;
+  background:url(./images/content_img2.png) no-repeat right top;
+  background-size: 150px;
+}
+.text_box:nth-last-child(1)::after{
+  content: "";
+  display: block;
+  width: 170px;
+  height:280px;
+  position:absolute;
+  right:0;
+  top:-20px;
+  background: url(./images/content_img3.png) no-repeat right top;
+  background-size: 170px;
+}
+.text_box:nth-last-child(1) p{padding:0 200px 0 280px;}
+.text_box:nth-last-child(1) h4{color:#ed3140;}
+#menu2.content h3{font-size: 0px;}
+#menu2.content.this .conbox{background: url(./images/bookbg.png) no-repeat -15px 360px; max-width: 100%;}
+.notebook{
+  width:954px;
+  height:650px;
+  margin:100px auto 0 auto;
+  background: url(./images/mackbook.png) no-repeat;
+  background-size: 954px;
+  position: relative;
+}
+.detail_content{
+  width:719px; 
+  height: 453px; 
+  position: absolute; 
+  left:117px; 
+  top: 38px;
+  padding: 30px 0;
+}
+.img_book{width:270px; float:left;}
+.img_book img{width:270px;}
+.book_description{
+  width:449px;
+  float:left;
+  padding:20px 20px 20px 40px;
+}
+.detail_content::after{content: ""; display: block; clear: both;} /*float이 다음 영역에 영향을 안주도록*/
+.book_description h4{font-size: 31px; font-weight: 700; color: #f92d68; line-height: 31px;}
+.book_description ul li em{font-weight: 700;}
+.bullet_list{margin-top:20px;}
+.bullet_list li {
+  margin-bottom: 5px;
+  padding-left: 10px;
+  font-size: 12px;
+  color: #3c4147;
+  position:relative;
+}
+.bullet_list li::after{
+  content: ""; 
+  display: block; 
+  width:3px; 
+  height: 3px;
+  border-radius: 50%;
+  background: #3c4147;
+  position:absolute;
+  left:0;
+  top: 8px;
+}
+.point_text{padding:10px 30px 0px 0; font-size: 12px; color: #666;}
+.point_text strong{
+  display: block;
+  padding: 0 0 10px 46px;
+  background: url(./images/point_bg.png) no-repeat;
+  background-size: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #3c4147;
+}
+.book_rollwrap{
+  width: 954px;
+  height: 150px;
+  margin: 40px auto 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+.book_rollwrap > button{
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  top: 0;
+}
+.book_rollwrap > button.roll_left{
+  background: url(./images/btn_left.png) no-repeat center center;
+  background-size: 20px;
+  left: 0;
+}
+.book_rollwrap > button.roll_right{
+  background: url(./images/btn_right.png) no-repeat center center;
+  background-size: 20px;
+  right:0;
+}
+.book_rollwrap .book_roll{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.book_rollwrap .book_roll ul{width:1000%;}
+.book_rollwrap .book_roll ul li{float:left; width: 152px; text-align: center;}
+.book_rollwrap .book_roll ul li img{width: 100px;}
+.commbtn{
+  width: 150px;
+  display: inline-block;
+  height: 35px;
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 35px;
+  border-radius: 5px;
+  text-align: center;
+}
+.commbtn.pink{
+  background: #f92d68;
+  color: #fff;
+}
+.book_rollwrap .book_roll ul li {color: #fff;}
