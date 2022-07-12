@@ -23,3 +23,17 @@ $(".roll_left").click(function(){
 $(".roll_right").click(function(){
     $(".book_roll li").eq(-1).insertBefore(".book_roll li:first-child");
 });
+
+$(".book_roll li").click(function(){
+    var _this=$(this);
+    var liurl=_this.data("url");
+    $(".notebook").html();
+    $.ajax({
+        type:'post', //http 요청방식
+        url:liurl,  //해당 url
+        dataType:'html',  //data type
+        success:function(data){ //http 요청 성공 후 데이터 전송
+            $(".notebook").html(data);
+        }
+    });
+});
