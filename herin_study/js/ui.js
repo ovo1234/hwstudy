@@ -29,11 +29,16 @@ $(".book_roll li").click(function(){
     var liurl=_this.data("url");
     $(".notebook").html();
     $.ajax({
-        type:'post', //http 요청방식
-        url:liurl,  //해당 url
-        dataType:'html',  //data type
+        type: 'get', //http 요청방식
+        url: liurl,  //해당 url
+        dataType: 'html',  //data type
         success:function(data){ //http 요청 성공 후 데이터 전송
             $(".notebook").html(data);
         }
     });
+});
+
+$(".accordio_box ol li").click(function(){
+    $(".accordio_box ol li").removeClass("on");
+    $(this).addClass("on");
 });
