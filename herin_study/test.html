@@ -152,7 +152,47 @@
             <section id="menu4" class="content">
                 <h2>Contact Us</h2>
                 <div class="conbox">
-                    <section class="content_wrap"></section>
+                    <section class="content_wrap">
+                        <h3 class="form_tit">지금 이지스퍼블리싱에 물어보세요!!</h3>
+                        <form class="gform" method="post" action="" name="contactus">
+                            <fieldset> <!--form 그룹화-->
+                                <legend>Contact Us</legend> <!--그룹 이름-->
+                                <div class="formlist">
+                                    <ul>
+                                        <li>
+                                            <!-- label for 속성값과 input id가 동일하면 label클릭시 연결된 양식에 바로 입력 가능
+                                            sup사용: 필수라는 걸 보여줌/ input-required: 필수 즉, 안적으면 양식 못 보낸다.  -->
+                                            <label for="name">이름<sup>*</sup></label>
+                                            <span class="inputbox"><input type="text" id="name" name="name" required 
+                                                placeholder="이름을 입력하여 주세요"></span>
+                                        </li>
+                                        <li>
+                                            <label for="email">답변 받을 이메일<sup>*</sup></label>
+                                            <span class="inputbox"><input type="email" id="email" name="email" required
+                                                placeholder="sample@mail.com"></span>
+                                        </li>
+                                        <li>
+                                            <label for="message">문의내용<sup>*</sup></label>
+                                            <span class="textbox"><textarea name="message" id="message" required
+                                                placeholder="궁금한 사항을 작성해 주세요."></textarea></span>
+                                        </li>
+                                    </ul>
+                                    <div class="btn_box">
+                                        <button type="submit" class="commbtn gray">문의하기</button>
+                                    </div>
+                                </div>
+                                <div class="thankyou_message">
+                                    <section>
+                                        <h1>작성 완료되었습니다.</h1>
+                                        <p>확인 후 빠르게 답변 드리겠습니다.</p>
+                                        <div class="btn_box">
+                                            <a href="#" class="commbtn gray close">닫기</a>
+                                        </div>
+                                    </section>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </section>
                 </div>
             </section>
         </section>
@@ -166,5 +206,6 @@
     </section>    
     <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="./js/ui.js"></script>
+    <script data-cfasync="false" type="text/javascript" src="./js/form-submission-handler.js"></script>
 </body>
 </html>
