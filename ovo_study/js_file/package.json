@@ -1,0 +1,19 @@
+{
+  "name": "hwstudy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ovo1234/hwstudy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ovo1234/hwstudy/issues"
+  },
+  "homepage": "https://github.com/ovo1234/hwstudy#readme"
+}
