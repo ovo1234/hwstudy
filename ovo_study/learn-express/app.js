@@ -5,11 +5,43 @@ const app = express();
 // express 에서는 res.write나 res.end 대신 res.send를 사용가능
 app.set('port', process.env.PORT || 3000);
 
-// 미들웨어
-app.use((req,res,next) => {
-    console.log('모든 요청에 다 실행됩니다.');
-    next(); // 세 번째 매개변수 사용하여 다음 미들웨어로 넘어가는 함수 사용 next를 실행하지 않으면 다음 미들웨어가 실행되지 않음.
+const multer = require('multer');
+const fs = require('fs');
+
+try {
+    fs.readdirSync('uploads');
+} catch(error){
+    console.error('uploads 폴더가 없어 uploads 폴더를 생성합니다.');
+    fs.mkdirSync('uploads');
+}
+const upload = multer({
+    storage: multer.diskStorage({
+        destination(req, file, done){
+            done(null, 'uploads/');
+        },
+        filename(req, file, done){
+            const ext = path.extname(file.originalname);
+            done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+        },
+    }),
+    limits: {fileSize: 5 * 1024 * 1024},
 });
+app.get('/upload', (req, res) => {
+    res.sendFile(path.join(__dirname, 'multipart.html'));
+});
+app.post('/upload',
+    upload.fields([{name : 'image1'}, { name : 'image2 '}]),
+    (req, res) => {
+        console.log(req.files, req.body);
+        res.send('ok');
+    },
+);
+
+// 미들웨어
+// app.use((req,res,next) => {
+//     console.log('모든 요청에 다 실행됩니다.');
+//     next(); // 세 번째 매개변수 사용하여 다음 미들웨어로 넘어가는 함수 사용 next를 실행하지 않으면 다음 미들웨어가 실행되지 않음.
+// });
 
 app.get('/', (req, res, next) => {
     console.log('GET / 요청에서만 실행됩니다.');
