@@ -6,7 +6,7 @@ http.createServer((req, res) => {
         'Content-Type' : 'text/html; charset = uft-8'
     });
     res.write('<h1> Hello Node! </h1>'); // 클라이언트로 보낼 데이터
-    res.end('<p> Hello Server! </p>'); // 응답을 종효
+    res.end('<p> Hello Server! </p>'); // 응답을 종료
 })
     .listen(8080, () =>{
         console.log(
