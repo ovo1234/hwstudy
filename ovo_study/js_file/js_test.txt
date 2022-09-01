@@ -1,0 +1,142 @@
+사용자 입력값 받기 : prompt()
+
+알림 창으로 출력하기 : alert()
+
+웹 브라우저 화면에 출력하기 : document.write() 
+
+콘솔에 출력하기 : console.log()
+
+변수 : var / 상수 : const
+
+입력한 값 html로 불러오기: document.querySelector("아이디").value
+
+박스에 값 집어 넣음 : document.querySelector(아이디).innerHTML;
+
+조건 연산자 - ? / "
+    ㄴ 조건이 하나고 true 와 false 일 때 실행할 명령이 하나면 사용 가능
+    ex ) (score >= 60) ? alert("통과") : alert("실패");
+
+break 
+    break 문을 만나면 반복문 종료
+
+continue 
+    continue문은 주어진 조건에 맞는 값을 만나면 실행하던 반복문 건너뛰고 맨 앞으로 돌아감
+    그러고 다시 반복 시작
+
+함수 
+    function addNum(a,b){
+        var sum = a + b;
+    }
+
+    익명함수 : 이름이 없는 함수 / 함수 자체가 식이기에 변수 할당 가능 & 다른 함수의 매개변수로 사용 가능
+    var add = function(a,b){
+        retrun a + b;
+    }
+
+    var sum = add(10, 20);
+    // sum 의 값은 30이 나옴
+
+    즉시 실행 함수 : 함수를 정의함 동시 실행하는 함수
+    var result = (function() {
+        return 10 + 20;
+    }());
+    console.log(result); // 30
+
+return
+    return = result;
+    함숫값 반환
+
+변수
+    지역변수
+    전역변수
+    블록변수
+
+이벤트 다루기
+    - 마우스
+        click : 마우스로 누르면 이벤트 발생
+        dblclick : 마우스 두번 누르면 이벤트 발생
+        mousedown : 마우스 누르는 동안 이벤트 발생
+        mousemove : 마우스 포인터 움직일 때 이벤트 발생
+        mouseover : 마우스 요소 위로 옮겨지면 이벤트 발생
+        mouseout : 마우스 요소 벗어나면 이벤트 발생
+        mouseup : 누르는 마우스 버튼에서 손을 땔 때 이벤트 발생
+    - 문서 로딩
+        abort : 웹 문서 로딩 되기 전에 불러오기를 멈췄을 때 이벤트 발생
+        error : 문서 로딩 안될 때 이벤트 발생
+        load : 문서 로딩이 끝나면 이벤트 발생
+        resize : 문서 화면 크기가 바뀌었을 때 이벤트 발생
+        scroll : 스크롤 되었을 때 이벤트 발생
+        unload : 문서를 벗어날 대 이벤트 발생
+    - 폼
+        blur : 폼 요소에 포커스를 잃었을 때 이벤트 발생
+        change : 목록이나 체크 상태 등이 번경되면 이벤트 발생
+        focus : 포커스가 놓였을 때 이벤트 발생
+        reset : 다시 시작되었을 때 이벤트 발생
+        submit : submit 버튼을 눌렀을 때 이벤트 발생
+    
+    버튼 태그 함수 연결
+        function showDetail(){ }
+        onclick = "showDetail"
+
+        var coverImage = document.querySelector("#cover");
+        coverImage.onclick = function(){
+            alert("눌렀습니다.");
+        }
+
+객체
+    하나의 변수에 다양한 정보를 담기 위해 사용하는 자료형
+인스턴스
+    프로토타입을 사용해 만들어낸 객체
+    var now = new Data();
+    now.toLocaleString();
+
+Array 객체 
+    var myArray = new Array();
+    var numbers = ["one", "two", "three", "four"];
+
+    concat() : 둘 이상의 배열을 연결하는 함수
+    var num = ["1", "2", "3"];
+    var char = ["a", "b", "c", "d"];
+    num.concat(char)
+    -> num + char
+    char.concat(num)
+    -> char + num
+
+    join() : 배열 요소를 연결하는 함수
+    num.join()
+    -> "1,2,3"
+    num.join("-")
+    -> "1-2-3"
+
+    push() / unshift() : 새로운 요소를 추가하는 함수
+    num.push("4", "5")
+    -> "1,2,3,4,5"
+
+    pop() / shift() : 배열에서 요소를 추출하는 함수
+    var study = ["html", "css", "javascript"]
+    study.pop()
+    "javascript"
+    study
+    -> ["html", "css"]
+
+    splice() : 원하는 위치의 요소를 삭제하거나 추가하는 함수
+    
+문서 객체 모델 
+    웹 문서 텍스트나 이미지 등의 요소를 제어
+    DOM : 웹 문서의 모든 요소를 자스를 이용하여 조작할 수 있도록 객체를 사용해 문서 해석
+    - DOM 요소에 접근하는 여러 가지 방법
+        id 선택자로 접근 
+            getElementById()
+        class 값으로 접근
+            getElementByClassName()
+            getElementsByClassName()
+        태그 이름으로 찾아내는 함수
+            getElementsByTagName()
+        다양한 방법으로 찾아주는 함수 / id, class 사용해도 되고 태그 이름을 사용해도 됨.
+            querySelector(), querySelectorAll()
+        html 태그 속성을 가져오거나 수정하는 함수
+            getAttribute()
+            setAttribute()        
+    이벤트 처리
+        : addEventListener()
+        

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title> User edit </title>
+    </head>
+    <body>
+        <h1> 업데이트 폼</h1>
+        <form action="/update/<%= user[0].id %>" method="post">
+            id <input type="text" name="id" value="<%= user[0].id %>"> <br>
+            name <input type="text" name="name" value="<%= user[0].name %>"> <br>
+            age <input type="text" name="age" value="<%= user[0].age %>"> <br>
+            password <input type="text" name="password" value="<%= user[0].password %>"> <br>
+            <input type="submit" value="update" name="">
+        </form>
+    </body>
+</html>

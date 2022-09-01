@@ -67,7 +67,7 @@ Rest와 라우팅 사용하기
 cluster 모듈
     : 노드가 CPU 코어를 모두 사용할 수 있게 해주는 모듈 , 서버의 개수만큼 요청을 분산하여 서버에 무리가 덜 가게함.
 
-Express 모듈
+Express 모듈 (설치 : npm init)
     : 다른 사람들이 만들어둔 모듈임 
     // nodemon 패키지 : 소스 코드가 바뀔 때마다 자동으로 노드 실행하는 패키지
 
@@ -90,6 +90,9 @@ Express 모듈
         ㄴ saveUninitialized : 세션에 저장할 내역이 없더라도 처음부터 세션을 생성할지 설정
         ㄴ 세션 관리 시 클라이언트에 쿠키를 보내는데 이때 쿠키에는 서명 추가, secret의 값이 필요, cookie-parser의 secret과 같게 설정하는 것이 좋음
         ㄴ store : 서버를 재시작하면 메모리가 초기화되어 세션이 사라짐. 배포 시에 store에 데이터베이스를 연결하여 세션 유지하는 것이 좋음
+    
+    sequelize-cli : 시퀄라이즈 명령어를 실행하기 위한 패키지
+    mysql2 : MySQL 과 시퀄라이즈를 이어주는 드라이버
 
 app.set
     : 익스프레스에서 데이터를 저장하는데 전역적으로 사용이 되어 개개인의 값을 넣기에는 부적절, 앱 전체의 설정을 공유할 때 사용
@@ -98,3 +101,36 @@ app.set
 // 궁금한 것
  res.write() res.end() 사용하는 부분은 알겠지만 왜 사용하는지 모르겠음 굳이? -> 요청 마무리를 무조건 지어야하기에 end를 쓰는건가?
   ㄴ end 는 안써도 됨. / 응답을 끝낼 때 사용하고 안그러면 계속 요청이 들어옴
+  
+req.app : req 객체를 통해 app 객체에 접근 가능
+req.body : body-parser 미들웨어가 만든 요청의 본문 해석해
+req.cookies : 미들웨어가 만드는 요청의 쿠키를 해석한 객체
+req.ip : 요청의 ip 주소가 담김
+req.params : 라우트 매개변수에 대한 정보가 담긴 객체
+req.query : 쿼리스트링에 대한 정보가 담긴 객체
+req.signedCookies : 서명된 쿠키들은 req.Cookies 대신 여기 담김
+req.get(헤더 이름) : 헤더의 값을 가져오고 싶을 때 사용하는 메서드
+
+res.app : res 객체를 통해 app 객체에 접근 가능
+res.cookie(키, 값, 옵션) : 쿠키를 설정하는 메서드
+res.clearCookie(키, 값, 옵션) : 쿠키를 제거하는 메서드
+res.end() : 데이터 없이 응답 보냄
+res.json(JOSN) : JSON 형식의 응답을 보냄
+res.redirect(주소) : 리다이렉트할 주소와 함께 응답을 보냄
+res.render(뷰, 데이터) : 다음 절에서 다룰 템플릿 엔진을 렌더링해서 응답할 때 사용하는 메서드
+res.send(데이터) : 데이터와 함께 응답을 보냄
+res.sendFile(경로) : 경로에 위치한 파일 응답
+res.set(헤더, 값) : 응답의 헤더를 설정을
+res.status(코드) : 응답 시의 HTTP 상태 코드 지정
+
+데이터베이스
+
+시퀄라이즈 : 데이터베이스에 접속할 수 있는 시퀄라이즈
+    npm i express sequelize sequelize-cli mysql2
+    -> 설치 완료 후 
+    sequelize init 명령어 호출 -> config/config.json 설치됨
+
+관계 정의
+    1 : N
+       (user)1 -> N(comment) : hasMany
+       N -> 1 : belongsTo
