@@ -1,0 +1,353 @@
+@font-face {
+    font-family: "gong";
+    src: url('../font/Gong\ Gothic\ Medium.ttf');
+}
+
+@font-face {
+    font-family: "nanum";
+    src: url('../font/NanumSquareRoundB.ttf');
+}
+
+@font-face {
+    font-family: "gongli";
+    src: url('../font/Gong\ Gothic\ Light.ttf');
+}
+
+@font-face {
+    font-family: "main";
+    src: url('../font/HS두꺼비체.ttf');
+}
+
+
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.container {
+    position: relative;
+
+}
+
+/* header */
+.title {
+    position: absolute;
+    /* margin-top: -63px; */
+    /* margin-bottom: -30px; */
+    top: 16px;
+    /* left: 0; */
+    width: 300px;
+    /* height: 250px; */
+    object-fit: cover;
+}
+
+.nav_menu {
+    position: relative;
+    width: 100.97%;
+    height: 100px;
+    background-color: #008299;
+    margin: -10px;
+    margin-top: -26px;
+
+}
+
+._menu {
+    font-family: "main";
+    font-size: 55px;
+    color: white;
+    text-decoration-line: none;
+    position: absolute;
+    top: 25%;
+    left: 5%;
+
+}
+
+.nav_menu li {
+    float: left;
+}
+
+.category_menu {
+    font-family: 'gong';
+    font-size: 20px;
+    color: white;
+    text-decoration-line: none;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+
+}
+
+.all_menu {
+    font-family: 'gong';
+    font-size: 20px;
+    color: white;
+    text-decoration-line: none;
+    position: absolute;
+    top: 50%;
+    left: 32%;
+}
+
+.funding_menu {
+    font-family: 'gong';
+    font-size: 20px;
+    color: white;
+    text-decoration-line: none;
+    position: absolute;
+    top: 50%;
+    left: 37%;
+}
+
+.earlybird_menu {
+    font-family: 'gong';
+    font-size: 20px;
+    color: white;
+    text-decoration-line: none;
+    position: absolute;
+    top: 50%;
+    left: 44%;
+}
+
+.all_menu:hover,
+.funding_menu:hover,
+.earlybird_menu:hover,
+.category_menu:hover {
+    color: black;
+    transition: color 0.2s;
+}
+
+ul li {
+    list-style: none;
+    padding-inline-start: 0px;
+}
+
+a {
+    text-decoration-line: none;
+}
+
+#mainline {
+    display: inline-block;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: space-between;
+    z-index: 1;
+    margin-left: 24px;
+    padding: 0;
+    width: auto;
+    list-style: none;
+    vertical-align: top;
+}
+
+#mainline ul {
+    margin: 0;
+    width: 140px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    padding-top: 15px;
+    padding-left: 0px;
+    padding-bottom: 10px;
+    box-shadow: 0px 0px 8px 2px rgb(0, 0, 0, 20%);
+    position: absolute;
+    top: 75px;
+    left: 23.2%;
+    text-align: center;
+    opacity: 0;
+    z-index: 2;
+}
+
+#mainline ul li {
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+
+#mainline ul li span {
+    font-size: 15px;
+    font-family: 'gongli';
+    color: black;
+    cursor: pointer;
+}
+
+#mainline ul li:hover a {
+    font-weight: bold;
+}
+
+#mainline li:hover ul {
+    opacity: 1;
+}
+
+#mainline li:hover ul li {
+    height: 30px;
+    overflow: visible;
+    padding: 0;
+}
+
+/*login*/
+.main_mypage {
+    font-family: "nanum";
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 85%;
+}
+
+.main_logout {
+    font-family: "nanum";
+    font-size: 15px;
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+}
+
+#wrap {
+    position: absolute;
+    left: 80%;
+    top: 48%;
+}
+
+#wrap input[type="text"] {
+    height: 20px;
+    font-size: 15px;
+    font-family: "nanum";
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    color: rgb(0, 0, 0);
+    padding: 3px;
+    padding-left: 30px;
+    padding-right: 20px;
+    width: 0px;
+    position: absolute;
+    right: 15px;
+    background: none;
+    z-index: 3;
+    transition: width .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+    cursor: pointer;
+}
+
+#wrap input[type="text"]:focus {
+    width: 170px;
+    z-index: 1;
+    cursor: text;
+    position: absolute;
+    right: 40px;
+    background-color: white;
+}
+
+#wrap input[type="submit"] {
+    height: 20px;
+    width: 30px;
+    color: red;
+    float: right;
+    background: url('search.svg') no-repeat;
+    text-indent: -10000px;
+    border: none;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    transition: opacity .4s ease;
+}
+
+#wrap input[type="submit"]:hover {
+    opacity: 0.4;
+}
+
+/*footer*/
+
+.footer {
+    width: 100%;
+    bottom: 0;
+    left: 17px;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    padding-top: 20px;
+    height: 180px;
+}
+
+.footer hr {
+    text-align: center;
+    width: 95%;
+    margin-top: 90px;
+    margin-left: 45px;
+    border-color: #f2f4f641;
+}
+
+.footer h3 {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    text-align: left;
+    padding-bottom: 15px;
+    font-family: 'gongli';
+}
+
+.footer div{
+    position: relative;
+    left: 150px;
+}
+
+.footer p {
+    line-height: 10px;
+    font-family: 'nanum';
+}
+
+/* 바디 부분 */
+h1 {
+    text-align: center;
+    margin-top: 150px;
+    font-family: "gongli";
+    font-size: 40px;
+    color: #4a4a4a;
+}
+
+hr{
+    text-align: center;
+    width: 95%;
+    margin-top: 10px;
+    border-color: #f2f4f641;
+}
+
+table{
+    width: 700px;
+    margin: 100px auto;
+}
+
+#bt{
+    text-align: center;
+}
+
+th,td{
+    height: 50px;
+    text-align: right;
+    font-family: "gongli";
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    padding-right: 25px;
+}
+
+.label_name{
+    text-align: left;
+    width : 350px;
+    padding-left : 15px;  
+}
+
+.mypage_table button{
+    width: 150px;
+    height: 50px;
+    font-family: "gongli";
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #008299;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    margin-top : 30px;
+}
+
+

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>사업자 - 수정/등록</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+      integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--header logo 부분 시작-->
+    <div class="nav_menu">
+      <a href="./submain.html" class="_menu">ㅍㅎㄴㄹ</a>
+      <!--카테고리 메뉴바-->
+      <div>
+        <ul id="mainline">
+          <li>
+            <a href="#" class="category_menu">카테고리</a>
+            <ul>
+              <li>
+                <a href="#">가구</a>
+              </li>
+              <li>
+                <a href="#">전자기기</a>
+              </li>
+              <li>
+                <a href="#">생활용품</a>
+              </li>
+              <li>
+                <a href="#">취미</a>
+              </li>
+              <li>
+                <a href="#">뷰티</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="submain.html/all_prouct" class="all_menu">전체</a>
+          </li>
+          <li>
+            <a href="funding_planned.html" class="funding_menu">펀딩예정</a>
+          </li>
+          <li>
+            <a href="submain.html/earlybird" class="earlybird_menu">얼리버드</a>
+          </li>
+        </ul>
+      </div>
+
+      <a href="/champon_hw/login/login.html" class="main_login">마이페이지</a>
+      <div id="wrap">
+        <form action="" autocomplete="on">
+          <input
+            id="search"
+            name="search"
+            type="text"
+            placeholder="얼리버드 특가"
+          />
+          <input id="search_submit" value="Rechercher" type="submit" />
+        </form>
+      </div>
+    </div>
+
+    <!--header logo 부분 끝 body form 부분 시작-->
+    <h1 style="color: #4a4a4a;">상품 등록/수정</h1>
+    <hr style="width: 95%" />
+    <div class="form-container">
+      <form method="post">
+        <div class="image-container">
+          <label id="product-label">상품이미지</label>
+          <img
+            id="preview-image"
+            src="./img/대표이미지.png"
+            alt="대표이미지입니다."
+          />
+          <label class="input-file-button" for="input_image">첨부하기</label>
+          <input type="file" id="input_image" name="input_image" style="display: none" />
+          <label id="ext_label"
+            >jpg, png, gif, svg, tif 업로드 가능합니다.</label
+          >
+        </div>
+        <div class="title-container">
+          <label for="title">제목</label>
+          <input type="text" id="title" name="title" />
+        </div>
+        <div class="detail-content-container">
+          <label id="detaile-content" for="detaile_content">상세내용</label>
+          <textarea
+            name="detaile_content"
+            id="detaile-content-area"
+            cols="65"
+            rows="10"
+          ></textarea>
+        </div>
+        <div class="period-container">
+          <label for="period_date">기간</label>
+          <input type="text" id="from" name="period_date" placeholder="0000-00-00" />
+          <label id="period" for="to">~</label>
+          <input type="text" id="to" name="to" placeholder="0000-00-00" />
+        </div>
+        <div class="goal-money-container">
+          <label for="goal_money ">목표금액</label>
+          <input
+            type="text"
+            id="goal-money-input"
+            name="goal_money"
+            onkeyup="inputNumberFormat(this)"
+          />
+          <label style="margin-left: 10px">원</label>
+        </div>
+        <div class="product-container">
+          <label style="font-size: 22px">상품정보</label>
+          <hr />
+          <label for="product_name">이름</label>
+          <input id="product-name" type="text" name="product_name" />
+          <button id="product-plus">+</button>
+          <button id="product-minus">-</button>
+        </div>
+        <div class="product-count-container">
+          <label for="product_count">수량</label>
+          <input id="product-count" type="text" name="product_count" />
+        </div>
+        <div class="product-price-container">
+          <label for="product_price" id="product-price-label">금액</label>
+          <input
+            id="product-price"
+            name="product_price"
+            type="text"
+            onkeyup="inputNumberFormat(this)"
+          />
+          <label style="margin-left: 10px">원</label>
+        </div>
+        <div class="product-checkbox-container">
+          <input
+            type="checkbox"
+            name="ealry"
+            value="bird"
+            id="ealry-bird-box"
+            onclick="checkOnlyOne(this)"
+          />
+          <label for="early-bird">얼리버드</label>
+          <input
+            type="checkbox"
+            name="general"
+            value="sale"
+            id="general-sale"
+            onclick="checkOnlyOne(this)"
+          />
+          <label for="general-sale">일반판매</label>
+        </div>
+
+        <div class="detail-image-container">
+          <label style="font-size: 22px">상품 상세 이미지</label>
+          <hr />
+          <label style="margin-top: 13px">상세이미지</label>
+          <input type="file" id="detail_image" name="detail_image" />
+          <label for="detail_image" id="detail-image-label"
+            >첨부하기</label
+          >
+          <label id="ext_label_two"
+            >jpg, png, gif, svg, tif 업로드 가능합니다.</label
+          >
+        </div>
+        <hr style="position: relative; top: 600px" />
+        <div class="register-modify-container">
+          <button type="submit" id="register-button">등록요청하기</button>
+          <button type="submit" id="modify-button">수정요청하기</button>
+        </div>
+      </form>
+    </div>
+    <hr id="footer-hr" />
+    <footer class="footer">
+      <div>
+        <h3>펀한누리</h3>
+        <p>주소 : 경기도 군포시 한세로 30</p>
+        <p>고객 문의 : 0509moon@naver.com</p>
+        <p>ver. Beta test</p>
+      </div>
+    </footer>
+  </body>
+  <script src="./index.js"></script>
+</html>

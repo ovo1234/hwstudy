@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>business_mypage</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="views/business_mypage.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="nav_menu">
+        <a href="Main.html" class="_menu">ㅍㅎㄴㄹ</a>
+        <!--카테고리 메뉴바-->
+        <div>
+          <ul id="mainline">
+            <li>
+              <a href="#" class="category_menu">카테고리</a>
+              <ul>
+                <li data-url="furniture.html">
+                  <span>가구</span>
+                </li>
+                <li data-url="electronic.html">
+                  <span>전자기기</span>
+                </li>
+                <li data-url="daily.html">
+                  <span>생활용품</span>
+                </li>
+                <li data-url="hobby.html">
+                  <span>취미</span>
+                </li>
+                <li data-url="beauty.html">
+                  <span>뷰티</span>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="/champon_hw/Main.html" class="all_menu">전체</a>
+            </li>
+            <li>
+              <a href="#" class="funding_menu">펀딩예정</a>
+            </li>
+            <li>
+              <a href="#" class="earlybird_menu">얼리버드</a>
+            </li>
+          </ul>
+        </div>
+
+        <a href="/mypage" class="main_mypage">마이페이지</a>
+        <a href="/logout" class="main_logout">로그아웃</a>
+
+        <div id="wrap">
+          <form action="" autocomplete="on">
+            <input
+              id="search"
+              name="search"
+              type="text"
+              placeholder="검색어를 입력해 주세요."
+            />
+            <input id="search_submit" value="Rechercher" type="submit" />
+          </form>
+        </div>
+      </div>
+
+      <!-- body -->
+      <h1>상품 정보</h1>
+
+      <hr />
+      <div id="mypage_div">
+        <form method="post" action="/product" enctype="multipart/form-data">
+          <table class="mypage_table">
+            <tr>
+              <tr>
+                <td><label>상품이미지 : </label></td>
+                <img src="<% image %>" name="image" class = "label_name" ></img>
+              </tr>
+              <td><label>상품제목 : </label></td>
+              <td name="title" class="label_name"><%= title %></td>
+            </tr>
+            <tr>
+              <td><label>상세내용 : </label></td>
+              <td name="content" class="label_name"><%= content %></td>
+            </tr>
+            <tr>
+              <td><label>기간 : </label></td>
+              <td name="start" class="label_name"><%= start %></td>
+              <td name="end" class="label_name"><%= end %></td>
+            </tr>
+            <tr>
+              <td><label>목표금액</label></td>
+              <td name="money" class="label_name"><%= money %></td>
+            </tr>
+            <tr>
+              <td><label>상품이름</label></td>
+              <td name="name" class="label_name"><%= name %></td>
+            </tr>
+            <tr>
+              <td><label>수량</label></td>
+              <td name="count" class="label_name"><%= count %></td>
+            </tr>
+            <tr>
+              <td><label>가격</label></td>
+              <td name="price" class="label_name"><%= price %></td>
+            </tr>
+            <tr>
+              <td><label>얼리 일반 유무</label></td>
+              <td name="ealry" class="label_name"><%= ealry %></td>
+              <td name="sale" class="label_name"><%= sale %></td>
+            </tr>
+            <tr>
+              <td><label>상세이미지</label></td>
+              <img src="<%= detailImage %>" name="detailImage" class = "label_name" ></img>
+          </tr>
+            <td colspan="2" id="bt">
+              <button type="" value="">수정하기</button>
+            </td>
+          </table>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <hr />
+        <div>
+          <h3>펀한누리</h3>
+          <p>주소 : 경기도 군포시 한세로 30</p>
+          <p>고객 문의 : 0509moon@naver.com</p>
+          <p>ver. Beta test</p>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="jquery-3.6.0.js"></script>
+  </body>
+</html>
