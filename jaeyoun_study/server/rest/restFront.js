@@ -12,6 +12,7 @@ async function getUser() {
       span.textContent = users[key];
       const edit = document.createElement("button");
       edit.textContent = "수정";
+      // 수정 버튼 이벤트
       edit.addEventListener("click", async () => {
         // 수정 버튼 클릭
         const name = prompt("바꿀 이름을 입력하세요");
@@ -25,6 +26,7 @@ async function getUser() {
           console.error(err);
         }
       });
+      // 삭제 버튼 이벤트
       const remove = document.createElement("button");
       remove.textContent = "삭제";
       remove.addEventListener("click", async () => {
@@ -36,6 +38,8 @@ async function getUser() {
           console.error(err);
         }
       });
+
+      // 붙이기
       userDiv.appendChild(span);
       userDiv.appendChild(edit);
       userDiv.appendChild(remove);
