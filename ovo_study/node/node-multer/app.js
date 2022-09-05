@@ -20,6 +20,7 @@ app.set("views", __dirname + "/views");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname + ' ')));
+app.use(express.static("public"));
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -42,7 +43,7 @@ app.get("/", (req,res) => {
 
 app.post("/wirte", upload.single("image"), (req, res, next) => {
     const id = req.body.id;
-    const image = `../public/images/${req.file.filename}`;
+    const image = `/images/${req.file.filename}`;
     const datas = [id, image];
 
     const sql = "INSERT INTO product_test (id, image) values(?, ?)";
@@ -50,7 +51,7 @@ app.post("/wirte", upload.single("image"), (req, res, next) => {
         if (err) {
             console.error("err : " + err);
         } else {
-            console.log("rows : " + JSON.stringify(rows));
+            console.log("rows : " + JSON.stringify(rows) + req.file.filename);
             
             res.redirect("/read");
         }
